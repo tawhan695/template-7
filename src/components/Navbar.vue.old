@@ -1,0 +1,300 @@
+<template>
+    <div>
+        <header class="header">
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <div class="container">
+                    <router-link class="navbar-brand" to="/">
+                        <img src="../assets/logo.png" class="img-fluid logo" style="width:190px" />
+                    </router-link>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <form @submit.prevent="login()" method="POST">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="row">
+                                    <div class="col-md-6 py-2">
+                                        <input class="form-control" type="text" v-model="User.phoneNo"
+                                            placeholder="ชื่อผู้ใช้" />
+                                    </div>
+                                    <div class="col-md-6 py-2">
+                                        <div class="input-group">
+                                            <input v-model="User.password" :type="passwordFieldType"
+                                                class="form-control input-password" placeholder="รหัสผ่าน" required />
+                                            <span class="input-group-text show-password" @click="showPassword()">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 pd-nav1">
+                                <div class="row">
+                                    <div class="col-md-6 py-2">
+                                        <button type="submit"
+                                            class="btn btn-1 hvr-sweep-to-right w-100 px-0">เข้าสู่ระบบ</button>
+                                    </div>
+                                    <div class="col-md-6 py-2">
+                                        <router-link to="/register" class="btn btn-2 hvr-sweep-to-right w-100 px-0">
+                                            สมัครสมาชิก
+                                        </router-link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            <ul class="nav nav-fill bg-gradiant py-2 d-none d-md-flex">
+                <li class="nav-item">
+                    <router-link to="/" class="nav-link" href="#">หน้าหลัก</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/" class="nav-link" href="#">ฝากถอน</router-link>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">โปรโมชั่น</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" :href="LINE_URL">ติดต่อสอบถาม</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight">
+            <div class="offcanvas-header">
+                <h5 id="offcanvasRightLabel"></h5>
+                <i class="fa fa-times" style="font-size: 32pt;color:#ffbc00" data-bs-dismiss="offcanvas"
+                    aria-hidden="true"></i>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <router-link to="/register" class="w-100 d-block">สมัครสมาชิก</router-link>
+                    </li>
+                    <li class="list-group-item">
+                        <router-link to="/login" class="w-100 d-block">เข้าสู่ระบบ</router-link>
+                    </li>
+                    <li class="list-group-item">
+                        <router-link to="/promotion" class="w-100 d-block">โปรโมชั่น</router-link>
+                    </li>
+                    <li class="list-group-item">
+                        <a :href="LINE_URL" class="w-100 d-block">ติดต่อเรา</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import { useAuthStore } from '../stores/auth';
+// import { useUserStore } from '../stores/user';
+export default {
+    setup() {
+        // const userStore = useUserStore()
+        const authStore = useAuthStore()
+        const LINE_URL = import.meta.env.VITE_LINE_URL
+        return {
+            // userStore,
+            authStore,
+            LINE_URL
+        }
+    },
+    data() {
+        return {
+            User: {
+                phoneNo: "",
+                password: "",
+            },
+            line_id: "",
+            passwordFieldType: "password"
+        };
+    },
+    methods: {
+        showPassword() {
+            this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
+        },
+        async login() {
+            // const loginData = await this.authStore.Login(this.User);
+
+            // if (!loginData.error) {
+            //     const userProfile = await this.userStore.getProfile();
+            //     if (!userProfile.error) this.$router.push("/member");
+            // }
+        },
+    }
+}
+</script>
+
+
+<style lang="scss" scoped>
+.offcanvas {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    color: #fff;
+
+    @supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)) {
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    .list-group-item {
+        background: transparent;
+        color: #fff;
+
+        a {
+            color: #fff;
+            font-size: 18pt;
+        }
+    }
+}
+
+.header {
+    display: block;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    opacity: 1;
+    transition: transform 0.5s ease-out;
+
+    &.sticky {
+        transform: translateY(-120%);
+    }
+}
+
+.form-control {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    border-radius: 5px;
+
+    &:active,
+    &:focus {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-color: #ffffffc9;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #fffb0000;
+    }
+}
+
+.input-password {
+    border-right: unset;
+    border-right-color: transparent;
+}
+
+span.show-password {
+    background-color: #fff;
+    border-left: unset;
+    cursor: pointer;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.input-group-text {
+    border-left: unset;
+}
+
+.btn-1 {
+    cursor: pointer;
+    background: #e1e1e100;
+    border: 1px solid #d9d9d9;
+    text-decoration: none;
+    color: #d9d9d9;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+    border-radius: 6px;
+    font-weight: 500;
+
+    &:before {
+        background: #d9d9d9;
+    }
+
+    &:hover {
+        color: #853b78;
+    }
+}
+
+.btn-2 {
+    cursor: pointer;
+    background: #e1e1e100;
+    border: 1px solid #ecc400;
+    text-decoration: none;
+    color: #ecc400;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+    border-radius: 6px;
+    font-weight: 500;
+
+    &:before {
+        background: #ecc400;
+    }
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+.hvr-sweep-to-right {
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    transition-property: color;
+    transition-duration: 0.3s;
+
+    &:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        transition-property: transform;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-out;
+    }
+
+    &:hover {
+        &:before {
+            transform: scaleX(1);
+        }
+    }
+
+    &:focus {
+        &:before {
+            transform: scaleX(1);
+        }
+    }
+
+    &:active {
+        &:before {
+            transform: scaleX(1);
+        }
+    }
+}
+
+.bg-gradiant {
+    background: linear-gradient(0deg, #5d5d5d, #919191, #f2f2f2);
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 10px 0 #0000005c;
+
+    a {
+        color: #000;
+
+        &:hover {
+            color: rgb(255, 255, 255);
+        }
+    }
+}
+</style>

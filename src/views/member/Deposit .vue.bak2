@@ -1,0 +1,478 @@
+<template>
+  <div>
+    <div class="container mb-5">
+      <div class="row">
+        <div class="col-lg-6 m-md-auto col-sm-12 col-12">
+          <div class="card px-0 mt-5 card-member">
+            <div class="card-body text-dark">
+              <h2 class="text-center">ฝากเงิน</h2>
+
+              <div v-show="step == 0">
+                <img src="../../assets/img/member2/popup-2.webp" alt="" class="img-fluid mb-3">
+                <button @click="() => step = 1" class="btn -submit w-100">ฝากเงิน</button>
+              </div>
+
+              <div v-show="step == 1">
+
+                <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link w-100 active" id="pro-tab" @click=" setUsePromotion(true)" data-bs-toggle="tab" data-bs-target="#pro-tab-pane"
+                      role="tab">รับโปรโมชั่น</a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link w-100" id="nonpro-tab" @click="() => { selectPromotion(null), setUsePromotion(false) }" data-bs-toggle="tab"
+                      data-bs-target="#nonpro-tab-pane" role="tab">ไม่รับรับโปรโมชั่น</a>
+                  </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="pro-tab-pane" role="tabpanel" aria-labelledby="pro-tab" tabindex="0">
+
+                    <!-- <h5 v-if="promotionList.data[0]">รับโปรโมชั่น</h5> -->
+
+                    <div class="row mb-4 mt-3">
+                      <div v-for="promo in  promotionList.data " :key="promo.key" v-show="(userStore.userProfile.role == 0 && promo.promotion_type == 'newmember')
+                        || (userStore.userProfile.role != 0 && promo.promotion_type == 'member')
+                        || (promo.promotion_type == 'allmember')" class="col-sm-6">
+                        <div class="card" v-bind:class="{ 'selected': selectPromotionId == promo.id }">
+                          <a @click="selectPromotion(null)"><i class="fa fa-times"></i></a>
+                          <div class="card-body" @click="selectPromotion(promo)">
+                            <img :src="promotionList.host + promo.imgdesc" alt="" class="img-fluid">
+                            <p class="card-text">{{ promo.desc }}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                  <div class="tab-pane fade" id="nonpro-tab-pane" role="tabpanel" aria-labelledby="nonpro-tab" tabindex="0">
+
+                    <br>
+                    <div class="-x-input-icon x-input-operator mb-3 flex-column">
+                      <button type="button" class="-icon-left -btn-icon js-adjust-amount-by-operator" @click="deposit_amount -= 10"
+                        :disabled="selectPromotionId">
+                        <i class="fa fa-minus-circle"></i>
+                      </button>
+
+                      <input type="number" required v-model="deposit_amount" class="x-form-control text-center form-control"
+                        placeholder="เงินฝากขั้นต่ำ 100" @keypress="isNumber($event)" :readonly="selectPromotionId">
+                      <button type="button" class="-icon-right -btn-icon js-adjust-amount-by-operator" @click="deposit_amount += 10"
+                        :disabled="selectPromotionId">
+                        <i class="fa fa-plus-circle"></i>
+                      </button>
+                    </div>
+
+                    <div class="row my-3">
+                      <button class="btn col btn-danger mx-2" @click="setDepositAmount(100)" :disabled="selectPromotionId">100</button>
+                      <button class="btn col btn-danger mx-2" @click="setDepositAmount(300)" :disabled="selectPromotionId">300</button>
+                      <button class="btn col btn-danger mx-2" @click="setDepositAmount(500)" :disabled="selectPromotionId">500</button>
+                    </div>
+                    <div class="row my-3">
+                      <button class="btn col btn-danger mx-2" @click="setDepositAmount(1000)" :disabled="selectPromotionId">1,000</button>
+                      <button class="btn col btn-danger mx-2" @click="setDepositAmount(2000)" :disabled="selectPromotionId">2,000</button>
+                      <button class="btn col btn-danger mx-2" @click="setDepositAmount(5000)" :disabled="selectPromotionId">5,000</button>
+                    </div>
+
+                    <br>
+
+                  </div>
+                </div>
+
+                <hr>
+
+                <button @click="confirmPromotion()" class="btn -submit w-100">ยืนยัน</button>
+              </div>
+
+              <div v-show="step == 2">
+                <div class="card bg-light" v-show="!isRequest">
+                  <div class="card-body text-dark" v-if="bankData.banks">
+                    <div v-for=" data  in  bankData.banks " :key="data.key">
+                      <BankDeposit :bankData="data" v-show="!data.suspend"></BankDeposit>
+                      <button @click="selectBank(data)" class="btn btn-info w-100 mb-4">เลือกธนาคาร</button>
+                    </div>
+
+                    <small class="text-danger">
+                      **กรุณาใช้บัญชี
+                      <b>{{ toBankFormat(userStore.userProfile.bankAccount) }} ({{
+                        userStore.userProfile.name + " " + userStore.userProfile.lastname
+                      }})</b>
+                      ในการโอนเงินเท่านั้นไม่เช่นนั้นเครดิตจะไม่เข้าบัญชี
+                      หากมีปัญหากรุณาติดต่อทีมงาน
+                      <span></span>
+                    </small>
+                  </div>
+                </div>
+                <br>
+                <button @click="step = 1" class="btn btn-danger w-100">กลับ</button>
+              </div>
+
+              <div v-show="step == 3">
+
+                <br>
+                <div class="text-center">
+                  <!-- <h2>รหัสอ้างอิง <span class="text-danger">XXXXX</span></h2> -->
+                  <p>ยอดที่ต้องโอน <span class="h1 text-danger">
+                      {{ toCurrency(deposit_amount + deposit_amount_float)
+                      }}</span> บาท</p>
+                  <img v-show="useQrCode"
+                    :src="'https://promptpay.io/' + bankData.promtpay + '/' + parseFloat(deposit_amount + deposit_amount_float) + '.png'">
+
+                  <!-- <h3>กรุณาโอนบัญชี : {{ this.toBankFormat( UserdataPayload.tranferAcc )}}</h3>
+                      <h3>ธนาคาร: </h3> -->
+
+                  <div class="text-start mt-2">
+
+                    <BankDeposit v-if="UserdataPayload.bankData" :bankData="UserdataPayload.bankData"></BankDeposit>
+                  </div>
+
+                  <p class="text-danger">กรุณาโอนภายใน {{ countdown_time }} วินาที</p>
+                  <div class="progress" role="progressbar">
+                    <div class="progress-bar" :style="'width: ' + (countdown_time * 100) / 180 + '%'"> {{ countdown_time
+                    }}</div>
+                  </div>
+                </div>
+
+                <br>
+                <small class="text-danger ">
+                  **กรุณาใช้บัญชี
+                  <b>{{ toBankFormat(userStore.userProfile.bankAccount) }} ({{
+                    userStore.userProfile.name + " " + userStore.userProfile.lastname
+                  }})</b>
+                  ในการโอนเงินเท่านั้นไม่เช่นนั้นเครดิตจะไม่เข้าบัญชี
+                  หากมีปัญหากรุณาติดต่อทีมงาน
+                  <span></span>
+                </small>
+
+                <button @click="clearProcess()" class="btn -submit w-100 mt-3">ยืนยันการโอน</button>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </div>
+
+  <!-- <ModalPromotions show_in="deposit"></ModalPromotions> -->
+</template>
+<script>
+// import axios from 'axios';
+import Swal from "sweetalert2";
+import { useUserStore } from "../../stores/user";
+import BankDeposit from "./components/BankDeposit.vue";
+
+// import ModalPromotions from "@/components/modals/modalPromotion.vue";
+import { useOptionStore } from "@/stores/options";
+
+/*
+import { Splide, SplideSlide } from '@splidejs/vue-splide'
+import '@splidejs/vue-splide/css'
+import '../../assets/scss/splidejs-theme.scss'
+*/
+export default {
+  name: "Member.Deposit",
+  setup() {
+    const userStore = useUserStore();
+    const option = useOptionStore();
+    return {
+      userStore,
+      option
+    };
+  },
+  data() {
+    return {
+      isRequest: false,
+      bankData: null,
+      deposit_amount: 300,
+      deposit_amount_float: 0,
+      step: 0,
+      countdown_time: 0,
+
+      selectPromotionId: null,
+      useQrCode: false,
+      UserdataPayload: {},
+      promtpay: {
+        amb: "0918403367",
+        ufa: "0889571029"
+      },
+      usePromotion: true
+
+    };
+  },
+  computed: {
+    promotionList() {
+      return this.option.getPromotions;
+    },
+  },
+  components: {
+    /*
+    Splide,
+    SplideSlide,
+    */
+    BankDeposit,
+    // ModalPromotions
+  },
+  created() {
+    this.bankData = this.userStore.userProfile.deposit[this.userStore.selector.num] ?? null;
+    this.bankData.promtpay = this.promtpay[this.userStore.selector.text]
+    this.userStore.postChangeUserAgent();
+  },
+  mounted() {
+    this.option.getPromotion_Deposit();
+    this.deposit_amount_float = this.genRand(0.01, 0.99, 2)
+  },
+  methods: {
+    setUsePromotion(b) {
+      this.usePromotion = b
+    },
+    clearProcess() {
+      this.step = 1;
+      this.countdown_time = 0;
+    },
+    selectBank(bankData) {
+
+      if (bankData.code != "TRUE") {
+        this.useQrCode = true;
+
+      } else {
+        this.useQrCode = false;
+      }
+      this.countdown_time = 180
+      this.countDownTimer()
+      this.step = 3;
+
+      let dataPayload = {
+        proId: this.selectPromotionId,
+        bankCode: this.userStore.userProfile.bankCode,
+        bankAccount: this.userStore.userProfile.bankAccount,
+        ag: 1,
+        tranferAcc: bankData.account,
+        bankData,
+        amount: this.toCurrency(this.deposit_amount + this.deposit_amount_float)
+      }
+
+      this.UserdataPayload = dataPayload;
+
+      this.userStore.depositWithPromotion(dataPayload);
+
+    },
+    confirmPromotion() {
+
+      if (this.usePromotion && this.selectPromotionId == null) {
+        Swal.fire({
+          icon: "error",
+          title: "กรุณาเลืออกโปรโมชั่น",
+          confirmButtonText: "ตกลง",
+          customClass: {
+            confirmButton: 'btn -submit mx-1',
+            cancelButton: 'btn -cancel mx-1',
+          },
+        })
+      } else {
+        this.step = 2;
+      }
+
+    },
+    selectPromotion(promo) {
+
+
+      if (promo != null) {
+        this.selectPromotionId = promo.id
+
+        this.deposit_amount = promo.min
+
+      } else {
+        this.selectPromotionId = null
+      }
+    },
+    setDepositAmount(amount) {
+      this.deposit_amount = amount
+    },
+    genRand(min, max, decimalPlaces) {
+      var rand = Math.random() * (max - min) + min;
+      var power = Math.pow(10, decimalPlaces);
+      return Math.floor(rand * power) / power;
+    },
+
+    countDownTimer() {
+      if (this.countdown_time > 0) {
+        setTimeout(() => {
+          this.countdown_time -= 1
+          this.countDownTimer()
+        }, 1000)
+      } else {
+        this.step = 1
+      }
+    }
+  },
+};
+</script>
+
+<style lang="scss" scoped> //
+ .card {
+   border-radius: 1rem;
+
+   .fa.fa-times {
+     display: none;
+   }
+
+   &.selected {
+     cursor: pointer;
+     box-shadow: 0px -1px 13px 2px #ff000077;
+     background-color: #ff000011;
+
+     a {
+       color: #fff;
+       z-index: 100;
+       position: absolute;
+       right: -.5rem;
+       top: -.5rem;
+       background-color: #ff4545;
+       width: 2rem;
+       height: 2rem;
+       border-radius: 1rem;
+       box-shadow: 0px -1px 13px 2px #ff000077;
+
+       &:hover {
+         background-color: red;
+         color: #ffcfcf;
+       }
+
+       .fa.fa-times {
+         display: block;
+         position: absolute;
+         left: .6rem;
+         top: .5rem;
+       }
+     }
+   }
+ }
+
+
+ .btn.-submit {
+   background: linear-gradient(180deg, #91f27f, #00bd02);
+   color: #fafafa;
+   border: unset;
+ }
+
+ .-x-input-icon {
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   border-radius: 3px;
+   position: relative;
+
+ }
+
+ .nav-link {
+   color: #2b2b2b;
+
+   &.active {
+     color: #d3a200;
+   }
+ }
+
+
+ .x-input-operator .-btn-icon {
+   position: absolute;
+   width: 50px;
+   height: 50px;
+   top: 0;
+   border: none;
+   background: none;
+   color: #0e82e4;
+   font-size: 1.5rem;
+   border-radius: 30px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   &.-icon-left {
+     left: 0;
+   }
+
+   &.-icon-right {
+     right: 0;
+   }
+ }
+
+ .x-input-operator .form-control {
+   padding-right: 50px !important;
+   padding-left: 50px !important;
+   font-weight: 700;
+   color: #472c59;
+   box-shadow: none;
+   background-color: #fff;
+   border: 2px solid #ffafa4;
+   border-radius: 30px;
+   height: 3rem;
+
+   &::placeholder {
+     color: #858585 !important;
+     font-weight: 400;
+   }
+ }
+
+ .btn-danger {
+   background: linear-gradient(180deg, #ffd5d5, #ffa6a6);
+   border: none;
+   color: #580000;
+
+   &:hover {
+     background: linear-gradient(180deg, #ffa6a6, #ff8888);
+   }
+ }
+
+
+
+ /////////
+
+
+ .block-icon {
+   color: #bd7100 !important;
+   text-align: center;
+
+   >a {
+     cursor: pointer;
+     color: #bd7100 !important;
+     border: 5px solid #ce2900;
+     border-radius: 1rem;
+     width: 100%;
+     height: auto;
+     display: block;
+     font-size: 14pt;
+     background-color: #ff008c1a;
+
+     img {
+       transition: transform .5s ease;
+     }
+
+     &:hover {
+       border: 5px solid #ff008c;
+
+       img {
+         transform: scale(1.075) rotate(5deg);
+       }
+     }
+   }
+
+ }
+
+ /* Chrome, Safari, Edge, Opera */
+ input::-webkit-outer-spin-button,
+ input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+ }
+
+ /* Firefox */
+ input[type=number] {
+   -moz-appearance: textfield;
+ }
+</style>

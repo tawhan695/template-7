@@ -1,0 +1,370 @@
+<script setup>
+import NavbarVue from "../components/Navbar.vue";
+import FooterVue from "../components/Footer.vue";
+import { useOptionStore } from "../stores/options";
+
+useOptionStore().getPromotion()
+const collapseList = useOptionStore().$state.dataPromotion
+
+</script>
+
+<template>
+  <NavbarVue />
+  <section class="section01 mt-4">
+    <div class="containsec01">
+      <div class="row m-0">
+        <div class="col-12 p-0 flexcenter">
+          <div class="headtext01">
+            <h2>
+              คาสิโนออนไลน์ TAWIN65 เว็บบาคาร่าออนไลน์ สมัครเล่นบาคาร่า
+              สล็อตออนไลน์ บาคาร่าเครดิตฟรี
+            </h2>
+            <div class="textwidget">
+              <strong>คาสิโนออนไลน์ </strong>บาคาร่าออนไลน์ สล็อตออนไลน์ TAWIN65
+              ยืนยันการันตรีระบบบาคาร่าฝาก-ถอน AUTO 10 วินาที เดิมพันได้ง่าย
+              สล็อตเครดิตฟรี 500 เราเป็น<span style="text-decoration: underline"><strong><span
+                    class="">สล็อตเว็บตรงไม่ผ่านเอเย่นต์ไม่มีขั้นต่ำ
+                  </span></strong></span>ระบบเข้าใจง่าย ฝากเงินง่ายเข้าทันทีทันใจ ถอนเงินง่ายเพียงแค่คลิ๊ก
+              เรามีคาสิโนมากกว่า 30 ค่ายไม่ว่าจะเป็น SA
+              <strong>SEXYGAME</strong> ทดลองเล่น<a href="#"><strong>สลอตPG</strong></a>
+              ให้คุณเลือกเล่นโดยไม่ต้องโยกเงิน และ<a href="#"><strong>สล็อต</strong></a>ออนไลน์
+              <a href="#"><span style="text-decoration: underline"><strong>สล็อต</strong></span></a>
+              กว่า 100 เกมส์ รวมทั้งยังมีเทรดหุ้น และเกมส์กราฟบิทคอยต์
+              สามารถเล่นได้ทั้ง PC, iOS, Andriod มีทีมงานดูแลตลอด 24 ชั่วโมง
+              มีปัญหาทักหาซัพพอร์ตได้ทันที<strong> </strong>
+            </div>
+          </div>
+          <div class="section01btn pb-4">
+            <div class="text-center btnsection01">
+              <div class="textwidget p-3 px-5">
+                <a href="/register">สมัครสมาชิก</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="x-service-wrapper mt-2">
+      <div class="row container m-auto justify-content-center">
+        <div class="col-11 col-sm-6 col-md-3 mb-lg-0 mb-2 text-center d-flex align-items-start d-md-block">
+          <a href="#0" class="d-flex flex-md-column flex-row" data-toggle="modal" data-target="#registerModal">
+            <div class="-fake-bg"></div>
+            <div class="-ic-wrapper">
+              <div class="-ic-section02">
+                <img width="200" height="200" src="@/assets/img/homeView/ic001-1.png"
+                  class="image wp-image-1187 attachment-full size-full" style="max-width: 100%; height: auto" />
+              </div>
+            </div>
+            <div class="text-left text-md-center">
+              <span class="d-block text-muted-lighter Detailsec02 f-5"><span class="-title-h2">ฝากถอน ออโต้</span>
+                <hr class="x-hr-border-glow my-1" />
+                <div class="textwidget">
+                  ฝาก-ถอน AUTO เพียงไม่เกิน 10 วินาที
+                </div>
+              </span>
+            </div>
+          </a>
+        </div>
+        <div class="col-11 col-sm-6 col-md-3 mb-lg-0 mb-2 text-center d-flex align-items-start d-md-block">
+          <div class="-fake-bg"></div>
+          <div class="-ic-wrapper">
+            <div class="-ic-section02">
+              <img width="200" height="200" src="@/assets/img/homeView/ez-casino-ic-nav-menu-slot.png"
+                class="image wp-image-1183 attachment-full size-full" style="max-width: 100%; height: auto" />
+            </div>
+          </div>
+          <div class="text-left text-md-center">
+            <span class="d-block text-muted-lighter Detailsec02 f-5"><span class="-title-h2">ฝากเงินไม่มีขั้นต่ำ</span>
+              <hr class="x-hr-border-glow my-1" />
+              <div class="textwidget">
+                ฝากเงินได้ไม่มีขั้นต่ำ ถอนได้ไม่มีขั้นต่ำ!
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="col-11 col-sm-6 col-md-3 mb-lg-0 mb-2 text-center d-flex align-items-start d-md-block">
+          <div class="-fake-bg"></div>
+          <div class="-ic-wrapper">
+            <div class="-ic-section02">
+              <img width="208" height="200" src="@/assets/img/homeView/redsh.png"
+                class="image wp-image-1185 attachment-full size-full" style="max-width: 100%; height: auto" />
+            </div>
+          </div>
+          <div class="text-left text-md-center">
+            <span class="d-block text-muted-lighter Detailsec02 f-5"><span class="-title-h2">บริการ 24/7</span>
+              <hr class="x-hr-border-glow my-1" />
+              <div class="textwidget">
+                บริการสอบถามตลอด 24 ชั่วโมงผ่านทางไลน์
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="col-11 col-sm-6 col-md-3 mb-lg-0 mb-2 text-center d-flex align-items-start d-md-block">
+          <div class="-fake-bg"></div>
+          <div class="-ic-wrapper">
+            <div class="-ic-section02">
+              <img width="493" height="419" src="@/assets/img/homeView/47-copy-1.png"
+                class="image wp-image-911 attachment-full size-full" style="max-width: 100%; height: auto" />
+            </div>
+          </div>
+          <div class="text-left text-md-center">
+            <span class="d-block text-muted-lighter Detailsec02 f-5"><span class="-title-h2">รองรับทรูวอลเล็ต</span>
+              <hr class="x-hr-border-glow my-1" />
+              <div class="textwidget">ฝากเงินง่ายๆ ผ่านทรูวอลเล็ต</div>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section02 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 my-2" v-for="(list, index) in collapseList.data" :key="list.key">
+          <a data-bs-toggle="collapse" :href="'#collapse' + index">
+            <img :src="collapseList.host + list.img" class="img-fluid" />
+          </a>
+          <div class="collapse" :id="'collapse' + index">
+            <img :src="collapseList.host + list.imgdesc" class="img-fluid" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br />
+  <br />
+  <br />
+  <FooterVue />
+</template>
+
+<style lang="scss" scoped>
+// @import '@/assets/style.css' ;
+.haed-title {
+  color: #ffe45e;
+  font-weight: 400;
+}
+
+.section02 {
+  position: relative;
+  background-image: url("@/assets/img/homeView/04.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.section06 {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background-image: url("@/assets/img/homeView/03.jpg");
+  background-position: center;
+  background-size: cover;
+
+  .-box9 {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+
+.section07 {
+  margin: 0;
+  padding: 2%;
+  position: relative;
+  background-image: url("@/assets/img/homeView/05.jpg");
+  background-position: center;
+  background-size: cover;
+
+  .-box07 {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+
+.-box02 {
+  max-width: 1300px;
+  margin: auto;
+}
+
+.section02 {
+  position: relative;
+  background-image: url("@/assets/img/homeView/04.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.section02::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 9;
+  background: white;
+  box-shadow: 0 0 5px #f21717, 0 0 15px #f21717, 0 0 25px #f21717;
+}
+
+.section02:before {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 9;
+  background: white;
+  box-shadow: 0 0 5px #f21717, 0 0 15px #f21717, 0 0 25px #f21717;
+}
+
+.section08 {
+  position: relative;
+  background-image: url("@/assets/img/homeView/04.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.section08::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 9;
+  background: white;
+  box-shadow: 0 0 5px #f21717, 0 0 15px #f21717, 0 0 25px #f21717;
+}
+
+.section08:before {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 9;
+  background: white;
+  box-shadow: 0 0 5px #f21717, 0 0 15px #f21717, 0 0 25px #f21717;
+}
+
+.section07:before {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 9;
+  background: white;
+  box-shadow: 0 0 5px #f21717, 0 0 15px #f21717, 0 0 25px #f21717;
+}
+
+.section06:before {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 9;
+  background: white;
+  box-shadow: 0 0 5px #f21717, 0 0 15px #f21717, 0 0 25px #f21717;
+}
+
+.s-right {
+  padding: 20px;
+
+  img {
+    max-width: 500px;
+    -webkit-animation: mymove 6s ease-in-out infinite;
+    animation: mymove 6s ease-in-out infinite;
+  }
+}
+
+@keyframes mymove {
+  0% {
+    -webkit-transform: translateY(0) rotate(0);
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    -webkit-transform: translateY(-30px) rotate(-1deg);
+    transform: translateY(-30px) rotate(-1deg);
+  }
+
+  100% {
+    -webkit-transform: translateY(0) rotate(0);
+    transform: translateY(0) rotate(0);
+  }
+}
+
+.s-left {
+  background-color: #0000006e;
+  border-radius: 1rem;
+  padding: 2rem;
+  height: 100%;
+}
+
+.containsec01 {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.flexcenter {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.headtext01 {
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 10px auto;
+  color: #ffffff;
+  font-weight: 300;
+  padding: 0 10px;
+}
+
+.btnsection01 {
+  background: #343a40;
+  border-radius: 50px;
+  width: max-content;
+  margin: 0 auto;
+  margin-top: 20px;
+  box-shadow: 3px 3px 10px #000000b3, 0 0 0 3px #eff2f4;
+  background: -webkit-linear-gradient(135deg,
+      #8c0303 0%,
+      #a02626 50%,
+      #5c2121 51%,
+      #752020 71%,
+      #ac2727 100%);
+  border: medium none;
+  position: relative;
+  z-index: 9;
+}
+
+.x-service-wrapper .-ic-wrapper {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.x-service-wrapper .-fake-bg {
+  display: none;
+}
+
+.-ic-section02 img {
+  width: 95px !important;
+}
+</style>

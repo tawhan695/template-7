@@ -1,0 +1,2 @@
+รายการ gameId ของหวย
+[home, thailotto, laoslotto, hanoylotto, baaclotto, gsblotto, pingponglotto, laoslotto_set, yeekeelotto, malaylotto, hanoylotto_set, malaylotto_set, stockkorea, stockchina, stockdowjones, stocktaiwan, stockengland, stockindia, stockhangseng, stockegypt, stocknikkei, stocksingapore, stockthai, stockgerman, stockrussia, hanoylotto hanoylotto_set, hanoylottospecial, hanoylottospecial_set, hanoylottovip, hanoylottovip_set, malaylotto, malaylotto_set, zodiaclotto, pingponglotto2,pingponglotto3,pingponglotto6]

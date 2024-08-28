@@ -1,0 +1,98 @@
+<template>
+  <div>
+    <div class="container mb-5">
+      <div class="row">
+        <div class="col-lg-6 m-md-auto col-sm-12 col-12">
+          <div class="card px-0 mt-5 card-member">
+            <div class="card-body text-dark">
+              <h2>ฝากเครดิต</h2>
+              <ol>
+                <li>คัดลอกเลขที่บัญชีธนาคาร</li>
+                <li>โอนเงินตามจำนวนที่ต้องการฝากและ 5-10 วินาที</li>
+                <span style="color: red">
+                  หากรอเกิน 1 นาทีแล้วเงินยังไม่เข้าอัตโนมัติ
+                  กรุณาติดต่อแอดมินพร้อมกับแนปสลิปการโอนและแจ้งชื่อ-นามสกุล
+                </span>
+              </ol>
+              <div class="text-center my-3">
+                <div class="spinner-border" v-show="isRequest" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+
+              <div class="card bg-light" v-show="!isRequest">
+                <div class="card-body text-dark" v-if="bankData.banks">
+                  <div v-for="data in bankData.banks" :key="data.key">
+                    <app-bank-deposit :bankData="data" v-show="!data.suspend"></app-bank-deposit>
+                  </div>
+
+                  <small class="text-danger">
+                    **กรุณาใช้บัญชี
+                    <b>{{ toBankFormat(userStore.userProfile.bankAccount) }} ({{
+                      userStore.userProfile.name + " " + userStore.userProfile.lastname
+                    }})</b>
+                    ในการโอนเงินเท่านั้นไม่เช่นนั้นเครดิตจะไม่เข้าบัญชี
+                    หากมีปัญหากรุณาติดต่อทีมงาน
+                    <span></span>
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </div>
+
+  <ModalPromotions show_in="deposit"></ModalPromotions>
+
+</template>
+<script>
+// import axios from 'axios';
+import { useUserStore } from "../../stores/user";
+import BankDeposit from "./components/BankDeposit.vue";
+import ModalPromotions from "@/components/modals/modalPromotion.vue";
+export default {
+  name: "Member.Deposit",
+  setup() {
+    const userStore = useUserStore();
+    return {
+      userStore,
+    };
+  },
+  data() {
+    return {
+      isRequest: false,
+      bankData: null,
+    };
+  },
+  components: {
+    "app-bank-deposit": BankDeposit,
+    ModalPromotions
+  },
+  created() {
+    this.bankData = this.userStore.userProfile.deposit[this.userStore.selector.num] ?? null;
+    this.userStore.postChangeUserAgent();
+  },
+  methods: {
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.btn {
+  //   position: relative;
+  padding: 0.375rem 0.75rem;
+  border-radius: unset;
+  font-size: unset;
+  border-color: #6c757d !important;
+  box-shadow: unset;
+  display: inline-block;
+  border: 1px solid transparent;
+}
+</style>

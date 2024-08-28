@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn-footer {
+        @apply flex flex-col justify-center items-center active:scale-95;
+    }
+
+    .text-footer {
+        @apply text-transparent md:text-2xl font-[400] bg-clip-text bg-gradient-to-t from-[#ffec35] via-[#ffbd19] to-[#ffec35];
+    }
+
+    .text-gradient-title {
+        @apply text-2xl md:text-4xl font-[600] text-transparent bg-clip-text bg-gradient-to-b from-[#ffec35] to-[#ffb414];
+    }
+
+    .flex-row-default {
+        @apply flex flex-row items-center justify-center;
+    }
+
+    .flex-col-default {
+        @apply flex flex-col items-center justify-center;
+    }
+
+    .input-auth {
+        @apply w-full flex-auto rounded-md bg-black px-3 py-2 md:!py-3 text-white outline-0 font-light shadow-sm placeholder-current sm:text-lg sm:leading-6;
+    }
+
+    .border-input-auth {
+        @apply bg-gradient-to-t from-yellow-200 via-yellow-500 to-yellow-100 p-[2px] rounded-lg;
+    }
+
+    .btn-auth {
+        @apply text-black w-full h-10 md:h-12 md:text-xl rounded-md shadow-lg drop-shadow-lg hover:scale-105 active:scale-95 duration-200;
+    }
+
+    .content-promo {
+        @apply text-transparent bg-clip-text bg-gradient-to-b from-[#cac7c1] to-[#fff] md:!pb-3 text-start text-xl md:!text-3xl font-[500];
+    }
+}

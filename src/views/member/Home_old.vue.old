@@ -1,0 +1,465 @@
+<template>
+  <div class="member">
+    <br />
+    <div class="container">
+      <div class="row justify-content-center" style="color: #e9e9e9">
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col">
+              <h3 class="text-account" data-bs-toggle="modal" data-bs-target="#selectProfile">
+                สลับบัญชี
+                <i class="fa fa-caret-down"></i>
+              </h3>
+              <div v-if="userStore.users.amb || userStore.users.ufa">
+                <h5 v-if="userStore.users.amb.active" class="text-user">
+                  {{ userStore.users.amb.username || ".." }}
+                </h5>
+                <h5 v-if="userStore.users.ufa.active" class="text-user">
+                  {{ userStore.users.ufa.username || ".." }}
+                </h5>
+              </div>
+              <small class="badge badge-username">{{
+                userStore.userProfile.phoneNo || ".."
+              }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <Splide :options="splideOption" @splide:active="onSplideActive" ref="splide">
+          <SplideSlide :name="key" v-for="(user, key) in userStore.users" :key="key">
+            <div class="col pt-4">
+              <div class="block-circle mx-auto">
+                <img :src="user.logo" alt="" class="img-fluid px-5" />
+                <p>ยอดเงินที่ใช้ได้</p>
+                <h2 v-if="userStore.users.ufa">
+                  {{ toCurrency(user.credit ?? 0) }}
+                </h2>
+                <p>
+                  สถาณะลูกค้า
+                  <span class="badge" v-bind:class="userStatus(userStore.userProfile.role).class">
+                    {{ userStatus(userStore.userProfile.role).text }}
+                  </span>
+                </p>
+                <div class="block-icon setting-icon">
+                  <router-link to="/member/setting">
+                    <div class="block-img">
+                      <img src="../../assets/img/ic_new/ic_setting.png" class="img-fluid" alt="" />
+                    </div>
+                  </router-link>
+                </div>
+              </div>
+              <div class="text-center mt-2">
+                <small class="text-center" style="color: #ffffff82">
+                  ข้อมูล ณ เวลา {{ time }}
+                </small>
+              </div>
+            </div>
+          </SplideSlide>
+        </Splide>
+      </div>
+
+      <div class="row justify-content-center mt-5">
+        <div class="col-auto">
+          <router-link to="/member/deposit">
+            <div class="block-icon">
+              <div class="block-img">
+                <img src="../../assets/img/ic_new/ic_topup.png" class="img-fluid" alt="" />
+              </div>
+            </div>
+            <span>ฝากเงิน</span>
+          </router-link>
+        </div>
+        <div class="col-auto">
+          <router-link to="/member/withdraw">
+            <div class="block-icon">
+              <div class="block-img">
+                <img src="../../assets/img/ic_new/ic_transfer.png" class="img-fluid" alt="" />
+              </div>
+            </div>
+            <span>ถอนเงิน</span>
+          </router-link>
+        </div>
+        <div class="col-auto">
+          <router-link to="/member/bonus">
+            <div class="block-icon">
+              <div class="block-img">
+                <img src="../../assets/img/ic_new/ic_gift.png" class="img-fluid" alt="" />
+              </div>
+            </div>
+            <span>รับโบนัส</span>
+          </router-link>
+        </div>
+        <div class="col-auto">
+          <router-link to="/member/invite-mlm">
+            <div class="block-icon">
+              <div class="block-img">
+                <img src="../../assets/img/ic_new/ic_group.png" class="img-fluid" alt="" />
+              </div>
+            </div>
+            <span>สร้างรายได้</span>
+          </router-link>
+        </div>
+      </div>
+      <br />
+      <div class="row justify-content-center mt-1">
+        <div class="col-auto">
+          <!-- <a href="#" data-bs-toggle="modal" data-bs-target="#ModalRanks"> -->
+          <a href="#">
+            <div class="block-icon">
+              <div class="block-img">
+                <img src="../../assets/img/ic_new/ic_invest.png" class="img-fluid" alt="" />
+              </div>
+            </div>
+            <span>จัดอันดับ</span>
+          </a>
+        </div>
+        <div class="col-auto">
+          <router-link to="/member/reward/spin">
+            <div class="block-icon">
+              <div class="block-img">
+                <img src="../../assets/img/ic_new/ic_wheel.png" class="img-fluid" alt="" />
+              </div>
+            </div>
+            <span>วงล้อ</span>
+          </router-link>
+        </div>
+        <div class="col-auto">
+          <router-link to="/member/history">
+            <div class="block-icon">
+              <div class="block-img">
+                <img src="../../assets/img/ic_new/ic_bullet.png" class="img-fluid" alt="" />
+              </div>
+            </div>
+            <span>ประวัติ</span>
+          </router-link>
+        </div>
+        <div class="col-auto">
+          <a :href="LINE_URL">
+            <div class="block-icon">
+              <div class="block-img">
+                <img src="../../assets/img/ic_new/ic_pay.png" class="img-fluid" alt="" />
+              </div>
+            </div>
+            <span>ติดต่อเรา</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="selectProfile" tabindex="-1" aria-labelledby="selectProfileLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-3" id="selectProfileLabel">สลับบัญชี</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group">
+            <a @click="setUserGame(key)" v-for="(user, key) in userStore.users" :key="user.key"
+              class="list-group-item list-group-item-action" :class="user.active ? 'active' : ''">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-uppercase">{{ key }}</h5>
+                <i v-if="user.active" class="fa fa-check" aria-hidden="true"></i>
+              </div>
+              <p class="mb-1">{{ user.username }}</p>
+              <small>{{
+                userStore.userProfile.name +
+                " " +
+                userStore.userProfile.lastname
+              }}</small>
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            ปิด
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- code hack  -->
+  <app-vip-hack v-if="
+    config.VipHackSlot &&
+    option.VIP_Hack_Slot &&
+    $route.name != 'hack.viphackedgames' &&
+    $route.name != 'hack.viphackslot' &&
+    $route.name != 'hack.viphackslot.hackgamelist' &&
+    $route.name != 'hack.viphackslot.hackedgames'
+  "></app-vip-hack>
+
+  <hack-percen v-if="config.fixed_percen && option.fixed_percen"></hack-percen>
+
+  <app-hack-jackpot v-if="
+    config.HackJackpot &&
+    option.Hackjackpot &&
+    this.$route.name != 'hack.hack-javis' &&
+    this.$route.name != 'hack.hackedjavis' &&
+    this.$route.name != 'hack.hackjavis'
+  "></app-hack-jackpot>
+
+  <!-- code hack end -->
+</template>
+
+<script>
+import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import Cookies from "js-cookie";
+import '@splidejs/vue-splide/css';
+import '../../assets/scss/splidejs-theme.scss' 
+
+// import '@splidejs/vue-splide/css/skyblue';
+
+import { useUserStore } from "../../stores/user";
+import { useSocketIO } from "../../socket";
+// import { Howl } from 'howler';
+
+// code hack
+import VipHackVue from "./components/code_hack/viphack/nav/VipHack.vue";
+import hackpercen from "./components/code_hack/codeChangePercen/Percen.vue";
+import Hackjackpot from "./components/code_hack/hackjackpot/Hackjackpot.vue";
+import { useConfigStore } from "@/stores/config";
+import { useOptionStore } from "@/stores/options";
+
+export default {
+  setup() {
+    const userStore = useUserStore();
+    const { socket } = useSocketIO();
+    const config = useConfigStore();
+    const option = useOptionStore();
+    
+
+    return {
+      userStore,
+      socket,
+      config,
+      option,
+    };
+  },
+  data() {
+    return {
+      time: "",
+      splideOption: {
+        rewind: false,
+        arrows: true,
+        start: this.userStore.selector == "ufa" ? 1 : 0,
+      },
+      userActiveClass: {
+        amb: true,
+        ufa: false,
+      },
+    };
+  },
+  computed: {},
+  components: {
+    Splide,
+    SplideSlide,
+    "app-vip-hack": VipHackVue,
+    "hack-percen": hackpercen,
+    "app-hack-jackpot": Hackjackpot,
+  },
+
+  created() {
+    this.userStore.getProfile();
+  },
+  mounted() {
+    // this.sound.play()
+  },
+  beforeUnmount() {
+    this.socket.disconnect();
+  },
+  methods: {
+    onSplideActive(e, { slide }) {
+      const slideName = slide.getAttribute("name");
+      this.setUserGame(slideName);
+    },
+
+    setUserGame(slideName) {
+      const splide = this.$refs.splide
+
+      if (slideName == 'amb') {
+        splide.go(0);
+        Cookies.set('background', "/bg/1.jpg", { expires: new Date(new Date().getTime() + (86400000 * 7)), secure: true, sameSite: 'strict' });
+      }
+      else if (slideName == 'ufa') {
+        splide.go(1);
+        Cookies.set('background', "/bg/2.jpg", { expires: new Date(new Date().getTime() + (86400000 * 7)), secure: true, sameSite: 'strict' });
+      }
+
+      this.userStore.setSelector(slideName)
+      this.userStore.postChangeUserAgent()
+      this.setBackgroundTheme()
+
+    },
+
+    userStatus(role) {
+      switch (role) {
+        case 0: return { class: "bg-secondary", text: "สมาชิกใหม่" };
+        case 1: return { class: "bg-success", text: "สมาชิกทั่วไป" };
+        case 2: return { class: "bg-warning", text: "VIP" };
+        case 3: return { class: "bg-warning", text: "สมาชิก Super VIP" };
+
+        default: return { class: "bg-secondary", text: role };
+      }
+    }
+
+  },
+
+  userStatus(role) {
+    switch (role) {
+      case 0:
+        return { class: "bg-secondary", text: "สมาชิกใหม่" };
+      case 1:
+        return { class: "bg-success", text: "สมาชิกทั่วไป" };
+      case 2:
+        return { class: "bg-warning", text: "VIP" };
+      case 3:
+        return { class: "bg-warning", text: "สมาชิก Super VIP" };
+
+      default:
+        return { class: "bg-secondary", text: role };
+    }
+  },
+
+};
+</script>
+
+<style lang="scss" scoped>
+// @import 'splidejs/vue-splide/css';
+.badge {
+  font-weight: 400;
+}
+
+.badge-username {
+  background-color: rgba(139, 139, 139, 0.527);
+  font-weight: 300;
+  font-size: 11pt;
+}
+
+hr {
+  opacity: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #bd6a00, transparent);
+}
+
+.text-account {
+  font-weight: 300;
+  transition: all 0.4s;
+
+  &:hover {
+    cursor: pointer;
+    color: #ffae00;
+  }
+}
+
+.text-user {
+  transition: all 0.4s;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.block-circle {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  padding-top: 2.5rem;
+  background-color: #00000085;
+  border-radius: 50%;
+  backdrop-filter: saturate(180%) blur(2px);
+  // border: 3px solid #ffae00;
+
+  &::before {
+    content: " ";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(0deg, #12c2e9, #c471ed, #f64f59);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    animation: spinning82341 10s linear infinite;
+  }
+
+  &::after {
+    content: " ";
+    position: absolute;
+    border-radius: 50%;
+    top: 0px;
+    left: 0px;
+    width: 250px;
+    height: 250px;
+    box-shadow: 0px -5px 20px 0px #f64f59, 0px 5px 20px 0px #00d0ff;
+    animation: spinning82341 10s linear infinite;
+  }
+}
+
+@keyframes spinning82341 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.col-auto {
+  text-align: center;
+
+  @media (min-width: 768px) {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+}
+
+.block-icon {
+  text-align: center;
+  border-radius: 10rem;
+  width: 64px;
+  height: 64px;
+  background-color: #00000058;
+  filter: brightness(70%);
+  transition: all 0.4s;
+  border: 2px solid #fff;
+
+  &:hover {
+    filter: brightness(1);
+    cursor: pointer;
+  }
+
+  .block-img {
+    padding: 0.75rem;
+  }
+
+  span {
+    filter: brightness(1) !important;
+  }
+}
+
+.setting-icon {
+  position: absolute;
+  z-index: 100;
+  right: 5%;
+  background-color: #000000be;
+  border: 2px solid #fff;
+  width: 38px;
+  height: 38px;
+  float: right;
+  margin-right: 1.5rem;
+
+  .block-img {
+    padding: 0.15rem;
+  }
+}
+
+.modal-dialog {
+  .modal-title {
+    color: #ffae00;
+  }
+
+  .modal-body {
+    color: var(--bs-gray-900);
+  }
+}
+</style>

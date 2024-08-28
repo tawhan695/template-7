@@ -1,0 +1,921 @@
+<script setup>
+import NavbarVue from "../components/Navbar.vue";
+// import Banner from "../components/Banner.vue"
+import FooterVue from "../components/Footer.vue";
+</script>
+
+<template>
+  <NavbarVue />
+  <section class="section01 mt-4">
+    <div class="containsec01">
+      <div class="row m-0">
+        <div class="col-12 p-0 flexcenter">
+          <div class="headtext01">
+            <h2>
+              คาสิโนออนไลน์ TAWIN65 เว็บบาคาร่าออนไลน์ สมัครเล่นบาคาร่า
+              สล็อตออนไลน์ บาคาร่าเครดิตฟรี
+            </h2>
+            <div class="textwidget">
+              <strong>คาสิโนออนไลน์ </strong>บาคาร่าออนไลน์ สล็อตออนไลน์ TAWIN65
+              ยืนยันการันตรีระบบบาคาร่าฝาก-ถอน AUTO 10 วินาที เดิมพันได้ง่าย
+              สล็อตเครดิตฟรี 500 เราเป็น<span style="text-decoration: underline"
+                ><strong
+                  ><span class=""
+                    >สล็อตเว็บตรงไม่ผ่านเอเย่นต์ไม่มีขั้นต่ำ
+                  </span></strong
+                ></span
+              >ระบบเข้าใจง่าย ฝากเงินง่ายเข้าทันทีทันใจ ถอนเงินง่ายเพียงแค่คลิ๊ก
+              เรามีคาสิโนมากกว่า 30 ค่ายไม่ว่าจะเป็น SA
+              <strong>SEXYGAME</strong> ทดลองเล่น<a href="#"
+                ><strong>สลอตPG</strong></a
+              >
+              ให้คุณเลือกเล่นโดยไม่ต้องโยกเงิน และ<a href="#"
+                ><strong>สล็อต</strong></a
+              >ออนไลน์
+              <a href="#"
+                ><span style="text-decoration: underline"
+                  ><strong>สล็อต</strong></span
+                ></a
+              >
+              กว่า 100 เกมส์ รวมทั้งยังมีเทรดหุ้น และเกมส์กราฟบิทคอยต์
+              สามารถเล่นได้ทั้ง PC, iOS, Andriod มีทีมงานดูแลตลอด 24 ชั่วโมง
+              มีปัญหาทักหาซัพพอร์ตได้ทันที<strong> </strong>
+            </div>
+          </div>
+          <div class="section01btn pb-4">
+            <div class="text-center btnsection01">
+              <div class="textwidget p-3 px-5">
+                <a href="/register">สมัครสมาชิก</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="x-service-wrapper mt-2">
+      <div class="row container m-auto justify-content-center">
+        <div
+          class="col-11 col-sm-6 col-md-3 mb-lg-0 mb-2 text-center d-flex align-items-start d-md-block"
+        >
+          <a
+            href="#0"
+            class="d-flex flex-md-column flex-row"
+            data-toggle="modal"
+            data-target="#registerModal"
+          >
+            <div class="-fake-bg"></div>
+            <div class="-ic-wrapper">
+              <div class="-ic-section02">
+                <img
+                  width="200"
+                  height="200"
+                  src="@/assets/img/homeView/ic001-1.png"
+                  class="image wp-image-1187 attachment-full size-full" 
+                  style="max-width: 100%; height: auto" 
+                />
+              </div>
+            </div>
+            <div class="text-left text-md-center">
+              <span class="d-block text-muted-lighter Detailsec02 f-5"
+                ><span class="-title-h2">ฝากถอน ออโต้</span>
+                <hr class="x-hr-border-glow my-1" />
+                <div class="textwidget">
+                  ฝาก-ถอน AUTO เพียงไม่เกิน 10 วินาที
+                </div>
+              </span>
+            </div>
+          </a>
+        </div>
+        <div
+          class="col-11 col-sm-6 col-md-3 mb-lg-0 mb-2 text-center d-flex align-items-start d-md-block"
+        >
+          <div class="-fake-bg"></div>
+          <div class="-ic-wrapper">
+            <div class="-ic-section02">
+              <img
+                width="200"
+                height="200"
+                src="@/assets/img/homeView/ez-casino-ic-nav-menu-slot.png"
+                class="image wp-image-1183 attachment-full size-full" 
+                style="max-width: 100%; height: auto"  
+              />
+            </div>
+          </div>
+          <div class="text-left text-md-center">
+            <span class="d-block text-muted-lighter Detailsec02 f-5"
+              ><span class="-title-h2">ฝากเงินไม่มีขั้นต่ำ</span>
+              <hr class="x-hr-border-glow my-1" />
+              <div class="textwidget">
+                ฝากเงินได้ไม่มีขั้นต่ำ ถอนได้ไม่มีขั้นต่ำ!
+              </div>
+            </span>
+          </div>
+        </div>
+        <div
+          class="col-11 col-sm-6 col-md-3 mb-lg-0 mb-2 text-center d-flex align-items-start d-md-block"
+        >
+          <div class="-fake-bg"></div>
+          <div class="-ic-wrapper">
+            <div class="-ic-section02">
+              <img
+                width="208"
+                height="200"
+                src="@/assets/img/homeView/redsh.png"
+                class="image wp-image-1185 attachment-full size-full" 
+                style="max-width: 100%; height: auto"
+              />
+            </div>
+          </div>
+          <div class="text-left text-md-center">
+            <span class="d-block text-muted-lighter Detailsec02 f-5"
+              ><span class="-title-h2">บริการ 24/7</span>
+              <hr class="x-hr-border-glow my-1" />
+              <div class="textwidget">
+                บริการสอบถามตลอด 24 ชั่วโมงผ่านทางไลน์
+              </div>
+            </span>
+          </div>
+        </div>
+        <div
+          class="col-11 col-sm-6 col-md-3 mb-lg-0 mb-2 text-center d-flex align-items-start d-md-block"
+        >
+          <div class="-fake-bg"></div>
+          <div class="-ic-wrapper">
+            <div class="-ic-section02">
+              <img
+                width="493"
+                height="419"
+                src="@/assets/img/homeView/47-copy-1.png"
+                class="image wp-image-911 attachment-full size-full" 
+                style="max-width: 100%; height: auto" 
+              />
+            </div>
+          </div>
+          <div class="text-left text-md-center">
+            <span class="d-block text-muted-lighter Detailsec02 f-5"
+              ><span class="-title-h2">รองรับทรูวอลเล็ต</span>
+              <hr class="x-hr-border-glow my-1" />
+              <div class="textwidget">ฝากเงินง่ายๆ ผ่านทรูวอลเล็ต</div>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section02 mt-5">
+    <div class="-box02">
+      <div class="row p-3">
+        <div class="col-12 col-md-6">
+          <div class="s-right">
+            <img
+              src="@/assets/img/homeView/หน้าแรก-removebg-2048x1475.png"
+              class="w-100 h-100"
+            />
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="s-left">
+            <div class="">
+              <div>
+                <div class="">
+                  <h4 class="p-3 text-center">
+                    TAWIN65 เว็บคาสิโนออนไลน์ บาคาร่ายุคใหม่ ทันสมัยที่สุด!
+                  </h4>
+                </div>
+              </div>
+              <div>
+                <div class="">
+                  <p>
+                    <strong>คาสิโนออนไลน์</strong> TAWIN65 เว็บตรงที่จ่ายจริง
+                    <a href="#"
+                      ><span style="color: #ff9900"
+                        ><strong>สล็อต</strong></span
+                      ></a
+                    >
+                    บาคาร่า คาสิโนสด มวย หวย กีฬา แทงบอล
+                    ครบทุกอย่างของวงการบาคาร่าเงินจริงที่คุณต้องการ 
+                    สมัครสมาชิกใหม่วันนี้รับที
+                    60% รายวันอีก 20%
+                    มีระบบแนะนำเพื่อนให้คุณสร้างรายได้หลักแสนต่อเดือนได้ง่ายๆ
+                    เล่นวันนี้ รวยวันนี้ มี<span style="color: #339966"
+                      ><strong>บาคาร่าเครดิตฟรี</strong></span
+                    >ให้คุณได้รับทุกๆวัน หลักล้าน หลักสิบล้านเราก็จ่าย!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section03 mt-5">
+    <div class="-box02">
+      <div class="row p-3">
+        <div class="col-12 col-md-6">
+          <div class="s-left">
+            <div class="">
+              <div>
+                <div class="">
+                  <h3 class="p-3 text-center">
+                    มาเปลี่ยนประสบการณ์เล่นบาคาร่า ออนไลน์ กับ TAWIN65
+                    และเกมส์คาสิโนอีกมากมาย
+                  </h3>
+                </div>
+              </div>
+              <div>
+                <div class=" ">
+                  <p>
+                    ถ้าคุณกำลังหาเกมส์ไพ่บาคาร่าแบบไม่มีขั้นต่ำ
+                    <a href="#">TAWIN65</a> เป็นเว็บ<span
+                      style="text-decoration: underline"
+                      ><span style="color: #ff0000; text-decoration: underline"
+                        ><a
+                          style="color: #ff0000; text-decoration: underline"
+                          href="#"
+                          ><strong>บาคาร่าเว็บตรง</strong></a
+                        ></span
+                      ></span
+                    >
+                    เว็บออนไลน์อันดับ 1 เรื่องการให้บริการ<span
+                      style="color: #ff0000"
+                      ><strong>คาสิโนสด</strong></span
+                    >จากเมืองนอก ซึ่งรวมเกมส์บาคาร่าจากเจ้าใหญ่กว่า 20
+                    เจ้าไม่ว่าจะเป็น SA GAMING, AE SEXY, Pretty Gaming หรือ DG
+                    Casino เว็บเล่นบาคาร่าเราเป็น<span style="color: #339966"
+                      ><strong>ระบบออโต้</strong></span
+                    >
+                    ไม่ว่าจะเป็นการฝากผ่านแบ็งค์ หรือทรูวัลเล็ต
+                    หรือการถอนเงินแบบไม่มีขึ้นต่ำ
+                    <span style="text-decoration: underline"
+                      >สมัครสมาชิกวันนี้ ฟรี 60% ของยอดฝาก!</span
+                    >
+                  </p>
+                  <p>
+                    ถ้าคุณอยาก<span style="color: #339966"
+                      ><strong>ทดลองเล่นฟรี</strong></span
+                    >
+                    เราก็มีให้<a href="#"
+                      ><span style="color: #3366ff"
+                        ><strong>เล่นบาคาร่าออนไลน์</strong></span
+                      ></a
+                    >ทุกค่าย เพียงท่านกดเข้าสมัครสมาชิกหน้าเว็บไซต์ของเรา
+                    และกรอกรายละเอียด
+                    จากนั้นทำการเข้าสู่ระบบเพื่อทดลองเล่นเครดิตฟรีก่อนได้เลย
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="s-right">
+            <img
+              src="@/assets/img/homeView/410430419B1B1DC2463DA0C8ED06CF998D02964E.png"
+              class="w-100 h-100 p-5"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section04">
+    <div class="-box02">
+      <div class="row p-3">
+        <div class="col-12 col-md-6">
+          <div class="s-right">
+            <img
+              src="@/assets/img/homeView/F88EF15C8F6AE2DA8561FCBCEFC55E6D775AC17D.png"
+              class="w-100 h-100 p-5"
+            />
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="s-left">
+            <div class="">
+              <div>
+                <div class=" ">
+                  <h3 class="p-3 text-center">
+                    สมัครเล่นบาคาร่ากับ TAWIN65 จะได้อะไรบ้าง
+                  </h3>
+                </div>
+              </div>
+              <div>
+                <div class=" ">
+                  <p>
+                    แน่นอนเมื่อท่านสมัครสมาชิกใหม่เพื่อเล่นบาคาร่าหรือ
+                    <span style="color: #ff0000"
+                      ><strong>Baccarat</strong></span
+                    >
+                    กับเรา ท่านจะได้โบนัส 60 % ของยอดฝาก เพื่อไปเล่น<a href="#"
+                      ><span style="color: #3366ff"
+                        ><strong>บาคาร่าสด</strong></span
+                      ></a
+                    >กับเรา ไม่ว่าจะเป็น
+                    <span style="color: #339966"
+                      ><strong>บาคาร่า SA</strong></span
+                    >,
+                    <span style="color: #339966"
+                      ><strong>บาคาร่า DG</strong></span
+                    >,
+                    <span style="color: #339966"
+                      ><strong>บาคาร่า Pretty</strong></span
+                    >,
+                    <span style="color: #339966"
+                      ><strong>บาคาร่า Gameplay</strong></span
+                    >,
+                    <span style="color: #339966"
+                      ><strong>เช็กชี่บาคาร่าม</strong></span
+                    >
+                    ,
+                    <span style="color: #339966"
+                      ><strong> Sexygame</strong></span
+                    >
+                    หรือ
+                    <span style="color: #339966"
+                      ><strong>บาคาร่า WM</strong></span
+                    >&nbsp;
+                  </p>
+                  <p>
+                    ไม่เท่านั้น ท่านยังได้โบนัสรายวันฟรีๆ 20%
+                    และทุกการเล่นจะได้รับเครดิตเงินคืน 0.4% แถมแจกเครดิตฟรีวันละ
+                    50 บาท วันละ 300 ยูส
+                    เรียกว่าคุ้มสุดแล้วถ้าท่านสมัครเล่นบาคาร่าที่
+                    <span style="color: #339966"><strong>TAWIN65</strong></span>
+                    เท่านั้น
+                  </p>
+                </div>
+              </div>
+              <div>
+                <div class=" ">
+                  <h3 class=" ">เล่นบาคาร่าเว็บตรง หมดปัญหาถูกโกง</h3>
+                </div>
+              </div>
+              <div>
+                <div class=" ">
+                  <p>
+                    <span style="color: #339966"
+                      ><strong>บาคาร่าเว็บตรง</strong></span
+                    >อย่างพริตตี้เกมมิ่ง ของเรานั้น มีสาวๆคอยให้บริการแจกไพ่ 1
+                    ในนั้นมีสาวไทยอยู่ด้วย
+                    แถมยังไม่เงื่อนไขการเล่นที่ไม่เหมือนกันเกมส์ค่ายอื่น
+                    ซึ่งมีโอกาสในการทำกำไรเป็นกอบเป็นกำมากกว่าค่ายอื่น
+                  </p>
+                  <ul>
+                    <li>
+                      มีเกมส์มากกว่าค่ายอื่นเป็นร้อยเกมส์
+                      แถมห้องให้เลือกเล่นบาคาร่าอีกมากมาย
+                    </li>
+                    <li>
+                      เงินไม่กี่บาท ก็สามารถเล่นบาคาร่าได้ เพราะทาง<span
+                        style="color: #ff99cc"
+                        ><strong>บาคาร่า Pretty</strong></span
+                      >
+                      นั้นไม่ได้กำหนดขั้นต่ำ ทำให้คุณรู้สึกสบายใจ
+                      และตรวจสอบได้เมื่อคุณชนะ
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section02 mt-5">
+    <div class="-box02">
+      <div class="row p-3">
+        <div class="col-12 col-md-6">
+          <div class="s-left">
+            <div class="">
+              <div>
+                <div class="">
+                  <h3 class="p-3 text-center">เล่นบาคาร่าออนไลน์เว็บไหนดี?</h3>
+                </div>
+              </div>
+              <div>
+                <div class=" ">
+                  <p>
+                    ปัจจุบัน<span style="color: #339966"
+                      ><strong>บาคาร่า</strong></span
+                    >
+                    มีให้บริการมากมายเป็นร้อยเจ้า ซึ่งทำให้เราไม่ทราบได้ว่า
+                    เจ้าไหนจ่ายเต็ม หรือจ่ายจริงกันแน่ เว็บ
+                    <span style="color: #ff0000"
+                      ><a style="color: #ff0000" href="#">TAWIN65</a></span
+                    >
+                    ของเรามั่นใจว่าเมื่อใดที่คุณต้องการ<span
+                      style="color: #339966"
+                      ><strong>เล่นบาคาร่า99</strong></span
+                    >
+                    หรือ
+                    <span style="text-decoration: underline"
+                      ><strong>บาคาร่า</strong></span
+                    >
+                    เราสามารถบริการเรื่องเงินอย่างตรงไปตรงมาอย่าง 100%
+                    เมื่อใดที่คุณเล่นได้และต้องการถอนเงิน เพียงแจ้งถอนมาในระบบ<a
+                      href="#"
+                      ><span style="color: #008080"
+                        ><strong>บาคาร่าAuto</strong></span
+                      ></a
+                    >
+                    เราสามารถโอนเงินเข้าบัญชีคุณภายใน 5 นาทีเท่านั้น
+                  </p>
+                </div>
+              </div>
+              <div>
+                <div class=" ">
+                  <h3 class="p-3 text-center">
+                    ทดลองเล่นบาคาร่า หรือบาคาร่าเครดิตฟรี
+                  </h3>
+                </div>
+              </div>
+              <div>
+                <div class=" ">
+                  <p>
+                    หากท่านอยาก<span style="color: #3366ff"
+                      ><strong>ทดลองเล่นบาคาร่า</strong></span
+                    >
+                    กับเราเพียงกดไปยังหน้าสมัคร
+                    และทำการเข้าสู่ระบบในหน้าเว็บของเรา
+                    จากนั้นเข้าไปยังหน้าเกมส์<strong>บาคาร่า DG</strong>
+                    ,<strong>บาคาร่า SA</strong> หรือ
+                    <span style="color: #ff99cc"
+                      ><strong>พริตตี้บาคาร่า</strong></span
+                    >
+                    และเลือกโต๊ะที่มีเหล่าสาวพริตตี้ที่คุณโดนใจกดเดิมพันได้เลย&nbsp;
+                  </p>
+                  <p>
+                    <span style="color: #ff9900"
+                      ><strong>บาคาร่าขั้นต่ำ 5 บาท</strong></span
+                    >
+                    มีที่เว็บ TAWIN65 แน่นอน สำหรับท่านที่ต้องการเล่น<span
+                      style="color: #3366ff"
+                      ><strong>บาคาร่า24</strong></span
+                    >
+                    และไม่อยากใช้ทุนเยอะ เรามีบริการขั้นต่ำสุดๆให้คุณอย่างแน่นอน
+                    และหากท่านหวังจะได้กำไรจากการเล่นการเดิมพันนี้ อาจจะต้องใช้
+                    <span style="color: #999999"
+                      ><strong>สูตรบาคาร่า2023 ai</strong></span
+                    >
+                    จะไปหวังดวงอย่างเดียวก็ไม่ได้
+                    ต้องพึ่งวิทยาศาสตร์ทางคอมพิวเตอร์กันบ้าง
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="s-right">
+            <img
+              src="@/assets/img/homeView/574B4D86AE21D8573F30ADDDD9EE7B9988F0450E.png"
+              class="w-100 h-100 p-3"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section06">
+    <div class="p-3 -box9">
+      <h2 class="text-center haed-title">
+        รีวิวจากลูกค้าเล่นบาคาร่าได้ จ่ายจริง ไม่มีอั้น!
+      </h2>
+      <div class="row d-flex justify-content-center">
+        <div class="col-6 col-md-4 p-0">
+          <img
+            src="@/assets/img/homeView/1D91647D94A41A4D976C8FA083AFCDD68A84A73C.png"
+            class="w-100 h-100"
+          />
+        </div>
+        <div class="col-6 col-md-4 p-0">
+          <img
+            src="@/assets/img/homeView/6F5F28045A80C66C42806E651D518621083D0A1B.png"
+            class="w-100 h-100"
+          />
+        </div>
+        <div class="col-6 col-md-4 p-0">
+          <img
+            src="@/assets/img/homeView/955D8C21EFB2F6C7FC5982B80DF27152F32C5FA3.png"
+            class="w-100 h-100"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section07">
+    <h3 class="text-center p-4">
+      รวมเกมส์พนันออนไลน์ บาคาร่า สล็อต หลากหลายค่าย
+    </h3>
+    <div class="-box07">
+      <div class="row p-2">
+        <div class="col-4 col-sm-3">
+          <img src="@/assets/img/homeView/amb-1.png" class="w-100 h-100" />
+        </div>
+        <div class="col-4 col-sm-3">
+          <img src="@/assets/img/homeView/allbet-3.png" class="w-100 h-100" />
+        </div>
+        <div class="col-4 col-sm-3">
+          <img src="@/assets/img/homeView/crypto-3.png" class="w-100 h-100" />
+        </div>
+        <div class="col-4 col-sm-3">
+          <img src="@/assets/img/homeView/evo-3.png" class="w-100 h-100" />
+        </div>
+        <div class="col-4 col-sm-3">
+          <img src="@/assets/img/homeView/PG-3.png" class="w-100 h-100" />
+        </div>
+        <div class="col-4 col-sm-3">
+          <img src="@/assets/img/homeView/PP-3.png" class="w-100 h-100" />
+        </div>
+        <div class="col-4 col-sm-3">
+          <img src="@/assets/img/homeView/sa-3.png" class="w-100 h-100" />
+        </div>
+        <div class="col-4 col-sm-3">
+          <img src="@/assets/img/homeView/sbobet-3.png" class="w-100 h-100" />
+        </div>
+        <div class="col-4 col-sm-3">
+          <img src="@/assets/img/homeView/sexy-3.png" class="w-100 h-100" />
+        </div>
+        <div class="col-4 col-sm-3">
+          <img src="@/assets/img/homeView/viv-3.png" class="w-100 h-100" />
+        </div>
+        <div class="col-4 col-sm-3">
+          <img src="@/assets/img/homeView/918kiss-3.png" class="w-100 h-100" />
+        </div>
+        <div class="col-4 col-sm-3">
+          <img src="@/assets/img/homeView/hotgraph-3.png" class="w-100 h-100" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section03">
+    <div class="-box02">
+      <div class="row p-3">
+        <div class="col-12 col-md-6">
+          <div class="s-left">
+            <div class=" ">
+              <div>
+                <div class=" ">
+                  <h3 class="p-3 text-center">
+                    แทงบอลออนไลน์ เล่นบอล เกมส์แทงกีฬา
+                  </h3>
+                </div>
+              </div>
+              <div>
+                <div class=" ">
+                  <p>
+                    <a href="#"
+                      ><span style="color: #3366ff"
+                        ><b>แทงบอลออนไลน์</b></span
+                      ></a
+                    >
+                    <span style="color: #339966"><b>เล่นบอล</b></span
+                    ><span style="font-weight: 400">
+                      กับชายไทยนับว่าเป็นสองสิ่งที่ขาดจากกันไม่ได้ ผู้ชายมากกว่า
+                      90%
+                      ชื่นชอบเกมกีฬาและแน่นอนว่ากีฬาที่นิยมคือกีฬาฟุตบอลถ้าบอกว่าแทงบอล
+                      พนันบอล หลายคนคงคุ้นหูกันอยู่แล้ว เพราะการ</span
+                    ><a href="#"
+                      ><span style="color: #3366ff"><b>แทงบอล</b></span></a
+                    ><span style="font-weight: 400">
+                      เรียกว่าเป็นของที่อยู่คู่กับวงการฟุตบอลมานานมากแล้ว
+                      และก็เป็นเรื่องที่เข้าถึงได้ง่าย
+                      บางคนอาจจะมีประสบการณ์เรื่องนี้ตั้งแต่เด็กหรือวัยรุ่นเลยด้วยซ้ำ
+                      ซึ่งนอกจากกีฬาฟุตบอลแล้ว การ</span
+                    ><span style="color: #3366ff"><b>พนันกีฬา ออนไลน์</b></span
+                    ><span style="font-weight: 400"
+                      >ก็มีตัวเลือกที่หลากหลาย แทบจะทุกชนิด ไม่ว่าจะเป็น </span
+                    ><a href="#"
+                      ><span style="color: #ff6600"><b>แทงบอล</b></span></a
+                    ><span style="font-weight: 400">
+                      แทงบาส อเมริกันฟุตบอล เทนนิส และอื่นๆ
+                      มาจนถึงกีฬาของเด็กรุ่นใหม่อย่าง </span
+                    ><span style="color: #339966"><b>พนัน esport</b></span
+                    ><span style="font-weight: 400">
+                      ที่เอาเกมมือถือ เกมคอม
+                      ที่เล่นกันในรูปแบบแข่งขันมาพนันนั่นเอง ซึ่งทำให้การ</span
+                    ><span style="color: #ff6600"><b>แทงกีฬา </b></span
+                    ><span style="font-weight: 400"
+                      >มีสีสันและความหลากหลายในตัวเลือกที่เพิ่มขึ้นมาอีกมาก</span
+                    ><span style="font-weight: 400"><br /></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="s-right">
+            <img
+              src="@/assets/img/homeView/sbobet-3.png"
+              class="w-100 h-100 p-5"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section08">
+    <div class="-box02">
+      <div class="row p-3">
+        <div class="col-12 col-md-6">
+          <div class="s-right">
+            <img
+              src="@/assets/img/homeView/F88EF15C8F6AE2DA8561FCBCEFC55E6D775AC17D.png"
+              class="w-100 h-100 p-5"
+            />
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="s-left">
+            <div class="">
+              <div 
+              >
+                <div class=" ">
+                  <h3 class="p-3 text-center">
+                    พื้นฐานในการเล่นแทงบอล
+                  </h3>
+                </div>
+              </div>
+              <div 
+              >
+                <div class=" ">
+                  <p>
+                    <span style="font-weight: 400"
+                      >อันนี้สำหรับคนที่ไม่คุ้นเคย
+                      สิ่งที่ต้องทำความเข้าใจเกี่ยวกับการ</span
+                    ><a
+                      href="#"
+                      ><span style="color: #008000"><b>พนันฟุตบอล</b></span></a
+                    ><span style="font-weight: 400"
+                      >และกีฬาอื่นๆคือเรื่องของอัตราต่อรองหรือที่ภาษาในวงการจะเรียกกันว่า</span
+                    ><span style="color: #0000ff"><b>ค่าน้ำบอล </b></span
+                    ><span style="font-weight: 400"
+                      >เช่นทีมใหญ่แข่งกับทีมเล็ก
+                      ถ้าเราแทงข้างทีมที่มีโปรไฟล์ดีกว่า
+                      การจ่ายเงินในกรณีที่แทงถูกก็จะให้น้อยกว่า
+                      กลับกันถ้าแทงทีมรอง โอกาสชนะอาจจะน้อย
+                      แต่ถ้าชนะก็จะได้เงินเยอะกว่า แล้วก็ยังมีเรื่องของการต่อ
+                      ก็คือการเพิ่มเงื่อนไขไปว่า
+                      ทีมนั้นๆต้องทำแต้มขั้นต่ำเท่าไหร่ จึงจะถือว่าคนแทงชนะพนัน
+                      เช่นถ้าต่อ1ลูก แปลว่าทีมตรงข้ามต้องยิงให้ได้2ลูก
+                      จึงจะถือว่าชนะ</span
+                    ><span style="font-weight: 400"><br /></span
+                    ><span style="font-weight: 400"><br /></span
+                    ><span style="font-weight: 400"
+                      >ข้อมูลพวกนี้สามารถหาอ่านได้ทั่วไป เกี่ยวกับ</span
+                    ><span style="color: #0000ff"><b>แทงบอลauto</b></span
+                    ><span style="font-weight: 400"> ,</span
+                    ><b><span style="color: #808000">u2nine แทงบอล</span>,</b>
+                    <span style="color: #800080"><b>ราคาบอลไหล</b></span
+                    ><span style="font-weight: 400"
+                      >&nbsp; อะไรพวกนี้ ซึ่งถ้าเข้าใจได้แล้ว
+                      การเล่นพนันกีฬาชนิดอื่นๆก็จะไม่ต่างกันไปเท่าไหร่เลย
+                      ต่างแค่การดูคะแนนของกีฬาแต่ละชนิดเท่านั้น อ้อ
+                      แล้วก็จะมีเรื่องการแทงแบบชุด หรือที่เรียกว่า</span
+                    ><span style="color: #800080"><b>เล่นบอลชุด </b></span
+                    ><span style="font-weight: 400"
+                      >ก็คือการที่เราวางเดิมพันครั้งเดียว แต่แทงหลายๆคู่
+                      ซึ่งเซียนบอลทั้งหลายจะชอบเล่นแบบขำๆกัน เพราะ</span
+                    ><span style="color: #800080"><b>แทงบอลถูก</b></span
+                    ><span style="font-weight: 400"
+                      >คู่นึงก็ลุ้นแล้ว อันนี้ต้องถูกหมดไม่ว่าจะเป็น</span
+                    ><span style="color: #800080"><b>บอลชุด3</b></span
+                    ><span style="font-weight: 400">
+                      บอลชุด5 หรือแทงเป็น10คู่
+                      แต่ถ้าถูกขึ้นมาก็เหมือนเล่นหวยแล้วแจ็คพอตแตก </span
+                    ><span style="color: #008080"><b>ทีเด็ด บอลชุด 55</b></span
+                    ><span style="font-weight: 400">
+                      เพราะเงินจะได้เพิ่มแบบทวีคุณตามจำนวนคู่ที่ถูกเลยทีเดียว
+                      ถ้าได้เล่น</span
+                    ><a
+                      href="#"
+                      ><span style="color: #008080"><b>บอลชุด</b></span></a
+                    ><span style="font-weight: 400">ก็ลองหาตามโพล </span
+                    ><span style="color: #0000ff"><b>บอลเต็ง ถล่ม โต๊ะ</b></span
+                    ><span style="font-weight: 400">
+                      ดูซักครั้งก็น่าลอง&nbsp;</span
+                    ><span style="font-weight: 400"><br /></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br />
+  <br />
+  <br />
+  <!-- <Banner /> -->
+  <FooterVue />
+</template>
+
+<style scoped lang="scss">
+.haed-title {
+  color: #ffe45e;
+  font-weight: 400;
+}
+.section02 {
+  position: relative;
+  background-image: url("@/assets/img/homeView/04.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.section06 {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background-image: url("@/assets/img/homeView/03.jpg");
+  background-position: center;
+  background-size: cover;
+  .-box9 {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+.section07 {
+  margin: 0;
+  padding: 2%;
+  position: relative;
+  background-image: url("@/assets/img/homeView/05.jpg");
+  background-position: center;
+  background-size: cover;
+  .-box07 {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+.-box02 {
+  max-width: 1300px;
+  margin: auto;
+}
+.section02 {
+    position: relative;
+    background-image: url("@/assets/img/homeView/04.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+.section02::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 9;
+  background: white;
+  box-shadow: 0 0 5px #f21717, 0 0 15px #f21717, 0 0 25px #f21717;
+}
+.section02:before {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 9;
+  background: white;
+  box-shadow: 0 0 5px #f21717, 0 0 15px #f21717, 0 0 25px #f21717;
+}
+.section08 {
+    position: relative;
+    background-image: url("@/assets/img/homeView/04.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  .section08::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    z-index: 9;
+    background: white;
+    box-shadow: 0 0 5px #f21717, 0 0 15px #f21717, 0 0 25px #f21717;
+  }
+.section08:before {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 9;
+  background: white;
+  box-shadow: 0 0 5px #f21717, 0 0 15px #f21717, 0 0 25px #f21717;
+}
+.section07:before {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 9;
+  background: white;
+  box-shadow: 0 0 5px #f21717, 0 0 15px #f21717, 0 0 25px #f21717;
+}
+.section06:before {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 9;
+  background: white;
+  box-shadow: 0 0 5px #f21717, 0 0 15px #f21717, 0 0 25px #f21717;
+}
+.s-right {
+  padding: 20px;
+  img {
+    max-width: 500px;
+    -webkit-animation: mymove 6s ease-in-out infinite;
+    animation: mymove 6s ease-in-out infinite;
+  }
+}
+@keyframes mymove {
+  0% {
+    -webkit-transform: translateY(0) rotate(0);
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    -webkit-transform: translateY(-30px) rotate(-1deg);
+    transform: translateY(-30px) rotate(-1deg);
+  }
+
+  100% {
+    -webkit-transform: translateY(0) rotate(0);
+    transform: translateY(0) rotate(0);
+  }
+}
+.s-left {
+  background-color: #0000006e;
+  border-radius: 1rem;
+  padding: 2rem;
+  height: 100%;
+}
+.containsec01 {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+.flexcenter {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+}
+.headtext01 {
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 10px auto;
+  color: #ffffff;
+  font-weight: 300;
+  padding: 0 10px;
+}
+.btnsection01 {
+  background: #343a40;
+  border-radius: 50px;
+  width: max-content;
+  margin: 0 auto;
+  margin-top: 20px;
+  box-shadow: 3px 3px 10px #000000b3, 0 0 0 3px #eff2f4;
+  background: -webkit-linear-gradient(
+    135deg,
+    #8c0303 0%,
+    #a02626 50%,
+    #5c2121 51%,
+    #752020 71%,
+    #ac2727 100%
+  );
+  border: medium none;
+  position: relative;
+  z-index: 9;
+}
+.x-service-wrapper .-ic-wrapper {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.x-service-wrapper .-fake-bg {
+  display: none;
+}
+.-ic-section02 img {
+  width: 95px !important;
+}
+</style>

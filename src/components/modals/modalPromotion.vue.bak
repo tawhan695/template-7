@@ -1,0 +1,152 @@
+<template>
+  <!-- Modal -->
+  <div>
+    <div v-for="(item, index) in Items_promotion" :key="index" class="modal fade" :id="'modalPromotion' + index"
+      :ref="'modalPromotion' + index" tabindex="-1" aria-hidden="true"
+      :aria-labelledby="'modalPromotion' + index + 'Label'">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header float-right">
+            <button type="button" id="btn-close-menu" class="btn-close" data-bs-dismiss="modal" aria-label="menuClose"
+              style="z-index: 99"></button>
+            <p class="pt-3" data-bs-dismiss="modal" aria-label="menuClose">
+              ปิด
+            </p>
+          </div>
+          <div class="modal-body">
+            <div v-if="Items_promotion.length == 1" @click="checkShow()">
+              <!-- <a :href="lineLink"> -->
+              <img :src="this.API_HOST + item.img" class="w-100" />
+              <!-- </a> -->
+            </div>
+            <div v-else :data-bs-target="'#modalPromotion' + getStart(index + 1)" data-bs-toggle="modal"
+              data-bs-dismiss="modal">
+              <!-- <a :href="lineLink"> -->
+              <img :src="this.API_HOST + item.img" class="w-100" />
+              <!-- </a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+import { Modal } from "bootstrap";
+import { useOptionStore } from "@/stores/options";
+export default {
+  name: "modelPromotion",
+  setup() {
+    const option = useOptionStore();
+    return {
+      option,
+    };
+  },
+  data() {
+    return {
+      start: 0,
+      lineLink: this.option.Line.url,
+      API_HOST: import.meta.env.VITE_CODEHACK_API
+    };
+  },
+  computed: {
+    Items_promotion() {
+
+      return this.option.getPromotionsPopup.data.filter(e => e.show_in === this.$attrs.show_in);
+    },
+  },
+  created() { },
+  methods: {
+    getStart(index) {
+      if (index == this.Items_promotion.length) {
+        return 0;
+      } else {
+        return index;
+      }
+    },
+    checkShow() {
+      if (this.Items_promotion.length == 1) {
+        this.modelPromotion.hide();
+      }
+    },
+  },
+  mounted() {
+    // console.log(this.$attrs.show_in);
+    if (this.option.modelPromotion === "show") {
+      if (this.Items_promotion.length > 0) {
+        this.modelPromotion = new Modal(
+          document.getElementById("modalPromotion0")
+        );
+
+        this.modelPromotion.show();
+        this.option.model_Promotion = this.modelPromotion;
+      }
+    }
+  },
+};
+</script>
+<style lang="scss" scoped>
+.btn-close {
+  width: 50px !important;
+  // height: 50px !important;
+  opacity: 1 !important;
+  background: transparent url("./icons8_cancel_512px.png") center/1.5em auto no-repeat !important;
+  // background-image: url('/icons/icons8_cancel_512px.png') ;
+}
+
+.modal-body {
+  border-radius: 30px;
+}
+
+.modal-content {
+  color: white;
+  background: transparent !important;
+  border: none !important;
+  // border: 4px solid rgb(250, 133, 95);
+}
+
+.modal-header {
+  border-bottom: 0px;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding: 0px !important;
+}
+
+.modal-body {
+  position: relative;
+  -moz-box-flex: 1;
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+
+@media (min-width: 1200px) {
+
+  .h4,
+  h4 {
+    font-size: 1.5rem;
+  }
+}
+
+.btn-widthdraw {
+  // border: none;
+  color: aliceblue;
+  padding: 0.5em 1.5em;
+  background: linear-gradient(180deg, #ffafa4, #ff6b56);
+  border-radius: 20px;
+  // box-shadow: 0 2px 4pxrgba(0,0,0,.12),0 1px 2pxhsla(0,7.3%,92%,.24);
+}
+
+.btn-deposit {
+  // border: none;
+  color: aliceblue;
+  padding: 0.5em 1.5em;
+  background: linear-gradient(180deg, #a8ff9c 0, #4dd842);
+  border-radius: 20px;
+  // box-shadow: 0 2px 4px rgb(0 0 0 / 0.1), 0 1px 2px hsl(0deg 7% 92% / 24%);
+}
+
+// .btn-close {
+//   -webkit-filter: invert(1) grayscale(100%) brightness(200%);
+//   filter: invert(1) grayscale(100%) brightness(200%);
+// }
+</style>
